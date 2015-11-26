@@ -3,6 +3,8 @@ var shoe = require('shoe');
 var ecstatic = require('ecstatic')(__dirname + '/static');
 var dnode = require('dnode');
 
+var async= require('async');
+
 var server = http.createServer(ecstatic);
 server.listen(9999);
 
