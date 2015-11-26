@@ -1,7 +1,7 @@
 var http = require('http');
 var shoe = require('shoe');
 var ecstatic = require('ecstatic')(__dirname + '/static');
-var dnode = require('../../');
+var dnode = require('dnode');
 
 var server = http.createServer(ecstatic);
 server.listen(9999);
