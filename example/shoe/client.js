@@ -9,7 +9,7 @@ domready(function () {
     var d = dnode();
     d.on('remote', function (remote) {
         remote.transform('beep', function (s) {
-            result.textContent = 'beep => ' + s;
+            result.textContent +=  s;
         });
     });
     d.pipe(stream).pipe(d);
