@@ -13,17 +13,17 @@ var options = {
   path: '/'
 };
 
+var options2 = {
+  host: 'vacancesinorama.com',
+  path: 'tourpage/index.php?id=index_montreal_fr'
+};
+
+
 var sock = shoe(function (stream) {
     var d = dnode({
         transform : function (s, cb) {
-            
 
-
-
-
-
-
-            async.parallel([
+        async.parallel([
         //Load user
         function(callback) {
             http.request(options, function(response){
@@ -42,7 +42,7 @@ var sock = shoe(function (stream) {
         },
         //Load posts
         function(callback) {
-            http.request("http://vacancesinorama.com/", function(response){
+            http.request(options2, function(response){
                 var str = '';
 
                 //another chunk of data has been recieved, so append it to `str`
