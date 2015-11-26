@@ -1,6 +1,6 @@
 var domready = require('domready');
 var shoe = require('shoe');
-var dnode = require('../../');
+var dnode = require('dnode');
 
 domready(function () {
     var result = document.getElementById('result');
