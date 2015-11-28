@@ -6,7 +6,7 @@ domready(function () {
     var result = document.getElementById('result');
     var stream = shoe('/dnode');
 
-    var d = dnode.connect('52.33.184.12', 9999);
+    var d = dnode();
     d.on('remote', function (remote) {
         remote.transform('beep', function (s) {
             result.textContent += s;
@@ -14,3 +14,5 @@ domready(function () {
     });
     d.pipe(stream).pipe(d);
 });
+
+
