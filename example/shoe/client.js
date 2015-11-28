@@ -57,9 +57,9 @@ function getNumberOfTechnicalStops(boundIndex, elementId) {
         carrier = storedDictionary["lcr"][carrierIndex];
         if (typeof carrier["lst"] != 'undefined'  || typeof carrier["nos"] != 'undefined') {
             if (carrier["lst"]) {
-                nbStops+=count(carrier["lst"]);
+                nbStops+=carrier["lst"].length;
             } else {
-                nbStops+=count(carrier["nos"]);
+                nbStops+=carrier["nos"].length;
             }
         }
     }
