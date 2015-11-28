@@ -5,7 +5,7 @@ function  showWaitingImage()
 {
     
 }
-
+var receivedDictionary;
 var receivedData;
 domready(function () {
     var result = document.getElementById('result');
@@ -17,7 +17,15 @@ domready(function () {
             result.textContent += s;
             eval(s);
             loadData();
-            alert(receivedData);
+            for (var i = 0; i < receivedData.length; i++) {
+                for (var j = 0; j < receivedData[i]["lp"].length; j++) {
+                    $row1 = receivedData[i]["lp"][j]["lt"];
+                    for (var m = 0; m < $row1.length; m++) {
+                        consolog.log($row1[m]["lr"]);
+                    }
+                }
+            }
+
         });
     });
     d.pipe(stream).pipe(d);
