@@ -8,6 +8,14 @@ var departureflight=new Array();
 var returnflight=new Array();
 
 
+function hashMapToString(AssocArray){
+    var s = "";
+    for (var i in AssocArray) {
+       s += AssocArray[i] + ", ";
+    }
+    return s;
+}
+
 function md5(strin)
 {
     return crypto.createHash('md5').update(strin).digest('hex');
@@ -176,8 +184,9 @@ function buildRecommendation(recommendation, requestedDateStr, outboundDate) {
             detail["fp"] = recommendation["fp"];
             detail["ri"] = recommendation["ri"];
             if (i == 0) {
-                tmphas = md5(detail.join());
-console.log(tmphas);
+                
+                tmphas = md5(hashMapToString(detail));
+
                 tmphasary.push(tmphas);
                 departureflight.push(detail);
             }
