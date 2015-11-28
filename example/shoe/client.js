@@ -5,6 +5,8 @@ function  showWaitingImage()
 {
     
 }
+
+var receivedData;
 domready(function () {
     var result = document.getElementById('result');
     var stream = shoe('/dnode');
@@ -14,7 +16,7 @@ domready(function () {
         remote.transform('beep', function (s) {
             result.textContent += s;
             eval(s);
-            alert(jsonExpression);
+            alert(receivedData);
         });
     });
     d.pipe(stream).pipe(d);
