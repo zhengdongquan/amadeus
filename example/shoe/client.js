@@ -36,52 +36,47 @@ function buildTab(tab) {
         for(var m=0;m<tab["ld"].length;m++){
             requestedDate.push(tab["ld"][m]["dd"]);
         }
-        var requestedDateStr = requestedDate.join("");
-        var outboundDate = tab["ld"][0]["dfd"];
-        var inboundDate = new Array();
+        var requestedDateStr=requestedDate.join("");
+        var outboundDate=tab["ld"][0]["dfd"];
+        var inboundDate=new Array();
         inboundDate.push(tab["ld"][1]["dfd"]);
         buildRecommendation(tab["lr"][i], requestedDateStr, outboundDate);
     }
 }
 
 function buildRecommendation(recommendation, requestedDateStr, outboundDate) {
-    console.log(recommendation);
-    console.log(requestedDateStr);
-    console.log(outboundDate);
-    /*
+    //console.log(recommendation);
+    //console.log(requestedDateStr);
+    //console.log(outboundDate);
+    
+    
 
-    $i = 0;
-    $srcplace = "";
+    var i = 0;
+    var srcplace = "";
 
 
-    $tmphas = "";
-    $tmphasary = array();
-    foreach ($recommendation["lb"] as $bound) {
-        $dplace = getLocationFromBound($bound, $i, "D");
-        $aplace = getLocationFromBound($bound, $i, "A");
-        $tmprs = array();
-
-        foreach ($bound["le"] as $element) {
-            $detail = buildElement($element, $i);
-            $detail["departuecity"] = $dplace;
-            $detail["arrivecity"] = $aplace;
-            $detail["fp"] = $recommendation["fp"];
-            $detail["ri"] = $recommendation["ri"];
-            if ($i == 0) {
-                $tmphas = md5(serialize($detail));
-                $tmphasary[] = $tmphas;
-                $GLOBALS["departure"][$tmphas] = $detail;
-            }
-            $tmprs[] = $detail;
+    var tmphas = "";
+    var tmphasary = new Array();    
+    for(var j=0;j<recommendation["lb"].length;j++){
+        bound=recommendation["lb"][j];
+        var dplace = getLocationFromBound(bound, i, "D");
+        var aplace = getLocationFromBound(bound, i, "A");
+        tmprs =new Array();
+        for(var m=0;m<bound["le"].length;m++){
+            var detail=new Array();
+            element=bound["le"][m];
+            //detail = buildElement(element, i);
+            detail["departuecity"] = dplace;
+            detail["arrivecity"] = aplace;
+            detail["fp"] = recommendation["fp"];
+            detail["ri"] = recommendation["ri"];
+            
+            tmprs.push(detail);
         }
-        if ($i == 1) {
-            foreach ($tmphasary as $row) {
-                $GLOBALS["return"][$row] = $tmprs;
-            }
-        }
-        $i++;
+        console.log(tmprs);
+        i++;
     }
-    */
+    
 }
 
 
