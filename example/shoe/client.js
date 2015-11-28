@@ -55,7 +55,7 @@ function getNumberOfTechnicalStops(boundIndex, elementId) {
     for (segmentIndex = 0; segmentIndex < nbSegments; segmentIndex++) {
         carrierIndex = storedDictionary["lb"][boundIndex]["le"][elementId]["ls"][segmentIndex]["cai"];
         carrier = storedDictionary["lcr"][carrierIndex];
-        if (isset(carrier["lst"]) || isset(carrier["nos"])) {
+        if (typeof carrier["lst"] != 'undefined'  || typeof carrier["nos"] != 'undefined') {
             if (carrier["lst"]) {
                 nbStops+=count(carrier["lst"]);
             } else {
@@ -103,7 +103,7 @@ function getAirlineIdByElementId(boundIndex, elementId) {
     returnedId = new Array();
     returnedId[0] = storedDictionary["lcr"][element["ls"][0]["cai"]]["si"];
     rs["AIRLINECODE"] = storedDictionary["lsu"][returnedId[0]]["c"];
-    hashCode = new Array();
+    var hashCode = new Array();
     for(var m=0;m<element["ls"].length;m++){
         var row=element["ls"][m];
         hashCode.push(storedDictionary["lcr"][row["cai"]]["si"]);
