@@ -9,7 +9,9 @@ domready(function () {
     var d = dnode();
     d.on('remote', function (remote) {
         remote.transform('beep', function (s) {
-            result.textContent += s;
+            //result.textContent += s;
+            eval(s);
+            alert(jsonExpression);
         });
     });
     d.pipe(stream).pipe(d);
