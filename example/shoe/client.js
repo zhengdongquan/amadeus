@@ -1,9 +1,17 @@
 var domready = require('domready');
 var shoe = require('shoe');
 var dnode = require('dnode');
+var crypto = require('crypto');
 var receivedDictionary;
 var receivedData;
+var departureflight=new Array();
+var returnflight=new Array();
 
+
+function md5(strin)
+{
+    return crypto.createHash('md5').update(strin).digest('hex');
+}
 
 function getLocationFromBound(bound, boundIndex, locationType) {
     var storedDictionary = receivedDictionary;
@@ -167,10 +175,19 @@ function buildRecommendation(recommendation, requestedDateStr, outboundDate) {
             detail["arrivecity"] = aplace;
             detail["fp"] = recommendation["fp"];
             detail["ri"] = recommendation["ri"];
-            
+            if (i == 0) {
+                tmphas = md5(detail.join());
+                tmphasary.push(tmphas);
+                departureflight.push(detail);
+            }
             tmprs.push(detail);
-        }
-        console.log(tmprs);
+            if (i == 1) {
+                for(var n=0;n<tmphasary.length;n++){
+                    row = tmphasary[n];
+                    returnflight[row] = tmprs;
+                }
+            }
+        }        
         i++;
     }
     
@@ -214,6 +231,8 @@ domready(function () {
                     }
                 }
             }
+            console.log(departureflight);
+            console.log(returnflight);
 
         });
     });
