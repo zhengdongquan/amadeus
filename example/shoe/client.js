@@ -177,6 +177,7 @@ function buildRecommendation(recommendation, requestedDateStr, outboundDate) {
             detail["ri"] = recommendation["ri"];
             if (i == 0) {
                 tmphas = md5(detail.join());
+console.log(tmphas);
                 tmphasary.push(tmphas);
                 departureflight.push(detail);
             }
