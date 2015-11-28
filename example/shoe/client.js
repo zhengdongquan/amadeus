@@ -16,6 +16,7 @@ domready(function () {
         remote.transform('beep', function (s) {
             result.textContent += s;
             eval(s);
+            loadData();
             alert(receivedData);
         });
     });
