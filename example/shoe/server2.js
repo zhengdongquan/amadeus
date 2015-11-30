@@ -43,7 +43,7 @@ WSserver
                     //the whole response has been recieved, so we just print it out here
                     response.on('end', function () {
                         var $ = cheerio.load(str);
-                        cb($('div #scriptToRemove').text());
+                        f($('div #scriptToRemove').text());
                     });
                 }).end();
             }
