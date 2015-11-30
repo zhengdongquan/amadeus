@@ -1,5 +1,5 @@
 var domready = require('domready');
-var shoe = require('shoe');
+var websocketStream = require('websocket-stream');
 var dnode = require('dnode');
 var crypto = require('crypto');
 var url = require('url');
@@ -212,7 +212,7 @@ function showWaitingImage() {
 
 domready(function () {
     var result = document.getElementById('result');
-    var stream = shoe('/dnode');
+    var c = websocketStream('ws://52.33.184.12:9999');
 
     var d = dnode();
     d.on('remote', function (remote) {
@@ -234,7 +234,9 @@ domready(function () {
 
         });
     });
-    d.pipe(stream).pipe(d);
+    c
+    .pipe(d)
+    .pipe(c);
 });
 
 
