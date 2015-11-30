@@ -30,7 +30,7 @@ WSserver
         var c = websocketStream(s);
         var d = dnode(
         {
-            test: function(f)
+            transform: function(s,f)
             {
                 http.request(options2, function (response) {
                     var str = '';
