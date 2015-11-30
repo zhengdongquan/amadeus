@@ -3,10 +3,11 @@
 var ws = require('ws');
 var websocketStream = require('websocket-stream');
 var dnode = require('dnode');
+var ecstatic = require('ecstatic')(__dirname + '/static');
 var http = require('http');
 
 var HTTPserver = http
-    .createServer()
+    .createServer(ecstatic)
     .listen(9999);
 
 var WSserver = new ws.Server(
