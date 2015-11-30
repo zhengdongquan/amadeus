@@ -211,7 +211,7 @@ function showWaitingImage() {
 
 }
 
-windown.loadFTlist = function (formid,listcodeid){
+window.loadFTlist = function (formid,listcodeid){
     var njq = cheerio.load(body);
     var listboxid = njq('#' + listboxid).parent();
     var boxcode =njq('#' + listboxid);
