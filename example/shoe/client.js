@@ -3,6 +3,7 @@ var websocketStream = require('websocket-stream');
 var dnode = require('dnode');
 var crypto = require('crypto');
 var url = require('url');
+var cheerio = require('cheerio');
 var receivedDictionary;
 var receivedData;
 var departureflight = new Array();
@@ -210,8 +211,10 @@ function showWaitingImage() {
 
 }
 
-domready(function () {
-    var result = document.getElementById('result');
+function loadFTlist(formid,listcodeid){
+    var njq = cheerio.load(body);
+    var listboxid = njq('#' + listboxid).parent();
+    var boxcode =njq('#' + listboxid);
     var c = websocketStream('ws://52.33.184.12:9999');
     var options2 = {
         host: 'wftc1.e-travel.com',
@@ -232,14 +235,17 @@ domready(function () {
                     }
                 }
             }
-            console.log(departureflight);
-            console.log(returnflight);
+            departureflight.forEach(function(entry) {
+                console.log(entry);
+            });
+            //console.log(departureflight);
+            //console.log(returnflight);
 
         });
     });
     c
     .pipe(d)
     .pipe(c);
-});
 
+}
 
