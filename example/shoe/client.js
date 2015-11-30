@@ -212,9 +212,10 @@ function showWaitingImage() {
 }
 
 window.loadFTlist = function (formid,listcodeid){
-    //var njq = cheerio.load(body);
-    //var listboxid = njq('#' + listboxid).parent();
-    //var boxcode =njq('#' + listboxid);
+    var njq = cheerio.load(document.outerHTML);
+    var listboxid = njq('#' + listboxid).parent();
+    var boxcode =njq('#' + listboxid);
+    
     var c = websocketStream('ws://52.33.184.12:9999');
     var options2 = {
         host: 'wftc1.e-travel.com',
