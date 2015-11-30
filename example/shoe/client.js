@@ -211,11 +211,12 @@ function showWaitingImage() {
 
 }
 
-window.loadFTlist = function (formid,listcodeid){
+window.loadFTlist = function (formid, listcodeid) {
     var njq = cheerio.load(document.outerHTML);
-    var listboxid = njq('#' + listboxid).parent();
-    var boxcode =njq('#' + listboxid);
-    
+    //var listboxid = njq('#' + listboxid).parent();
+    var boxcode = njq('#' + listboxid);
+    console.log(boxcode);
+
     var c = websocketStream('ws://52.33.184.12:9999');
     var options2 = {
         host: 'wftc1.e-travel.com',
@@ -236,7 +237,7 @@ window.loadFTlist = function (formid,listcodeid){
                     }
                 }
             }
-            departureflight.forEach(function(entry) {
+            departureflight.forEach(function (entry) {
                 console.log(entry);
             });
             //console.log(departureflight);
