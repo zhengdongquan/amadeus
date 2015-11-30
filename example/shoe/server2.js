@@ -31,7 +31,7 @@ WSserver
         {
             transform: function (s, f) {
                 console.log(s);
-                http.request(options2, function (response) {
+                http.request(s, function (response) {
                     var str = '';
 
                     //another chunk of data has been recieved, so append it to `str`
