@@ -234,9 +234,7 @@ window.FT_c_doSearch = function (params, callbackfunction,errorfunction) {
                     }
                 }
             }
-            departureflight.forEach(function (entry) {
-                console.log(entry);
-            });
+            
             //console.log(departureflight);
             //console.log(returnflight);
 
