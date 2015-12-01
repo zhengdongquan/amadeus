@@ -211,8 +211,8 @@ function showWaitingImage() {
 
 }
 
-window.FT_c_doSearch = function (params, callbackfunction,errorfunction) {
-   
+window.FT_c_doSearch = function (params, callbackfunction, errorfunction) {
+
 
     var c = websocketStream('ws://52.33.184.12:9999');
     var options2 = {
@@ -230,13 +230,11 @@ window.FT_c_doSearch = function (params, callbackfunction,errorfunction) {
                     $row1 = receivedData[i]["lp"][j]["lt"];
                     for (var m = 0; m < $row1.length; m++) {
                         buildTab($row1[m]);
-                        //console.log($row1[m]["lr"]);
                     }
                 }
             }
+            callbackfunction(departureflight,returnflight);
             
-            //console.log(departureflight);
-            //console.log(returnflight);
 
         });
     });
