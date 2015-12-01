@@ -211,11 +211,8 @@ function showWaitingImage() {
 
 }
 
-window.loadFTlist = function (formid, listcodeid) {
-    //var njq = cheerio.load(document.outerHTML);
-    //var listboxid = njq('#' + listboxid).parent();
-    //var boxcode = njq('#' + listboxid);
-    //console.log(document.outerHTML);
+window.FT_c_doSearch = function (params, callbackfunction,errorfunction) {
+   
 
     var c = websocketStream('ws://52.33.184.12:9999');
     var options2 = {
