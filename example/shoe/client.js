@@ -215,7 +215,7 @@ window.loadFTlist = function (formid, listcodeid) {
     //var njq = cheerio.load(document.outerHTML);
     //var listboxid = njq('#' + listboxid).parent();
     //var boxcode = njq('#' + listboxid);
-    console.log(document.outerHTML);
+    //console.log(document.outerHTML);
 
     var c = websocketStream('ws://52.33.184.12:9999');
     var options2 = {
